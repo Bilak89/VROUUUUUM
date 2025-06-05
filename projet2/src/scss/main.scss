@@ -8,6 +8,15 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Exo", sans-serif;
+    h1 {
+        @include h1-font;
+    }
+    h2 {
+        @include h2-font;
+    }
+    h3 {
+        @include h3-font;
+    }
 }
 
 body {
@@ -22,6 +31,10 @@ body {
         width: 100%;
         @include display-flex-column;
         color: $white-color;
+        .content_main {
+            @include display-flex;
+            @include display-flex-column;
+        }
     }
 }
 
@@ -48,42 +61,63 @@ body {
 }
 
 .hero {
-        @include display-flex-column;
-        align-items: center;
-        h1 {
-            font-size: 36px;
-            font-weight: 600;
-            margin-bottom: 40px;
+    @include display-flex-column;
+    align-items: center;
+    position: relative;
+    width: 1026px;
+    h1 {
+        font-weight: 600;
+        margin-bottom: 40px;
+    }
+    h2 {
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+    .especification_home {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 45px;
+        p {
+           font-size: $normal-font-size;
+           font-weight: 200;
         }
-        h2 {
-            font-size: $h2-font-size;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-        .especification_home {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 45px;
-        }
-        .white_car {
-            margin-bottom: 55px;
-        }
-        .big_circle {
+    }
+    .white_car {
+        margin-bottom: 55px;
+    }
+    .big_circle {
+        @include display-flex;
+        width: 90px;
+        height: 90px;
+        border: solid 2px #02DB8A;
+        border-radius: 50%;
+        margin-bottom: 30px;
+        box-shadow: 0 0 16px #02DB8A;
+        margin-bottom: 35px;
+        .small_circle {
             @include display-flex;
-            width: 90px;
-            height: 90px;
-            border: solid 2px #02DB8A;
+            width: 70px;
+            height: 70px;
+            border: solid 2px #099260;
             border-radius: 50%;
-            margin-bottom: 30px;
-            box-shadow: 0 0 16px #02DB8A;
-            .small_circle {
-                @include display-flex;
-                width: 70px;
-                height: 70px;
-                border: solid 2px #099260;
-                border-radius: 50%;
-            }
         }
+    }
+    #big_shape {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(0) translateX(0);
+        border-radius: 50%;
+        box-shadow: 0 0 180px 250px #374a6d7a;
+    }
+    #small_shape {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translateY(-200px) translateX(100px);
+        border-radius: 50%;
+        box-shadow: 0 0 180px 200px #374a6d7a;
+    }
 }
 
 .data_car_home {
@@ -105,4 +139,78 @@ body {
             color: $text-color-light;
         }
     }
+}
+
+.about {
+    @include display-flex;
+    width: 1026px;
+    gap: 88px;
+    padding: 72px 27px 88px;
+    position: relative;
+    .img_about {
+        position: relative;
+        .especification_about {
+        width: 197px;
+        height: 104px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translate(0, 50%);
+        @include display-flex;
+        @include display-flex-column;
+        text-align: center;
+        p {
+            @include smaller-font
+        }
+        }
+    }
+    .data_about {
+        @include display-flex-column;
+        gap: 20px;
+        p {
+            padding-top: 25px;
+            padding-bottom: 40px;
+            @include normal-font;
+        }
+        a {
+            text-decoration: none;
+            color: $white-color;
+            background-color: $first-color;
+            padding: 14px 32px;
+            border-radius: 4px;
+            max-width: 149px;
+            @include normal-font;
+        }
+    }
+    
+}
+
+.popular {
+    @include display-flex-column;
+    justify-content: center;
+    padding-top: 72px;
+    padding-bottom: 48px;
+    h2 {
+        width: 278px;
+        align-items: center;
+    }
+    .all_cards_popular {
+        @include display-flex;
+        gap: 48px;
+        justify-content: space-around;
+    }
+}
+
+.card_popular {
+    width: 258px;
+    border-radius: 20px;
+    background: $container-color;
+    padding-top: 39px;
+    padding-bottom: 28px;
+    padding: 39px 26px 28px 26px;
+    @include display-flex-column;
+    
 }
